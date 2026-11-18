@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f4f6fb;
+  --card: #fff;
+  --fg: #0f172a;
+  --mut: #64748b;
+  --bd: #e2e8f0;
+  --ac: #4f46e5;
+  --acs: #eef2ff;
+  --ok: #059669;
+  --bad: #dc2626;
+  --edge: #94a3b8;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1020;
+    --card: #141a2e;
+    --fg: #e6e9f5;
+    --mut: #93a0bd;
+    --bd: #27304d;
+    --ac: #818cf8;
+    --acs: #1e2547;
+    --ok: #34d399;
+    --bad: #f87171;
+    --edge: #5b6788;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1020;
+  --card: #141a2e;
+  --fg: #e6e9f5;
+  --mut: #93a0bd;
+  --bd: #27304d;
+  --ac: #818cf8;
+  --acs: #1e2547;
+  --ok: #34d399;
+  --bad: #f87171;
+  --edge: #5b6788;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+
+.ring-pulse {
+  animation: pls 1.4s ease-in-out infinite;
+}
+
+@keyframes pls {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* Utility classes matching the original Tailwind @apply directives */
+.card {
+  @apply rounded-2xl border border-[var(--bd)] bg-[var(--card)] p-4 shadow-sm sm:p-5;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-[var(--bd)] bg-[var(--card)] px-3.5 py-2 text-sm font-semibold transition hover:bg-[var(--acs)] disabled:cursor-not-allowed disabled:opacity-40;
+}
+
+.btn-p {
+  @apply border-transparent bg-[var(--ac)] text-white hover:bg-[var(--ac)] hover:opacity-90;
+}
+
+.inp {
+  @apply w-full rounded-lg border border-[var(--bd)] bg-[var(--bg)] px-2.5 py-1.5 text-sm text-[var(--fg)] outline-none focus:ring-2 focus:ring-[var(--ac)];
+}
+
+.lbl {
+  @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-[var(--mut)];
+}
+
+.stat {
+  @apply rounded-xl border border-[var(--bd)] bg-[var(--bg)] p-3;
+}
